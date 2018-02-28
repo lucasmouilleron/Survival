@@ -1,5 +1,7 @@
-set ignorecase
-set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]%=[%l,%v][%p%%]
-filetype plugin indent on
 syntax on
+set laststatus=2
+set statusline=%f
+set statusline+=%=
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
