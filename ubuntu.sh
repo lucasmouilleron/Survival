@@ -1,17 +1,34 @@
 #!/bin/bash
 
-ghr="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
+##############################################################
+GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
+##############################################################
+RED='\033[0;31m'
+NC='\033[0m'
 
-echo "Updating ..."
+##############################################################
+printStep() {
+    print "${RED}$1{NC}"
+}
+
+
+##############################################################
+printStep "Updating ..."
 sudo apt-get -qq update
 
-echo "Installing binaries ..."
+##############################################################
+printStep "Installing binaries ..."
 sudo apt-get install -qq -y curl git zsh vim glances
 
-echo "Running install ..."
+##############################################################
+printStep "Running install ..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Configuring ..."
-curl  -O -sL $ghr/configs/.zshrc
-curl  -O -sL $ghr/configs/.vimrc
-curl  -O -sL $ghr/configs/.hushlogin
+##############################################################
+printStep "Configuring ..."
+curl  -O -sL $GHR/configs/.zshrc
+curl  -O -sL $GHR/configs/.vimrc
+curl  -O -sL $GHR/configs/.hushlogin
+
+##############################################################
+printStep "Done !"
