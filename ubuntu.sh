@@ -12,23 +12,26 @@ printStep() {
 }
 
 
-##############################################################
-printStep "Updating ..."
-sudo apt-get -qq update
+# ##############################################################
+# printStep "Updating ..."
+# sudo apt-get -qq update
 
-##############################################################
-printStep "Installing binaries ..."
-sudo apt-get install -qq -y curl git zsh vim glances
+# ##############################################################
+# printStep "Installing binaries ..."
+# sudo apt-get install -qq -y curl git zsh vim glances
 
-##############################################################
-printStep "Running install ..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# ##############################################################
+# printStep "Running install ..."
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-##############################################################
-printStep "Configuring ..."
-curl  -O -sL $GHR/configs/.zshrc
-curl  -O -sL $GHR/configs/.vimrc
-curl  -O -sL $GHR/configs/.hushlogin
+# ##############################################################
+# printStep "Configuring ..."
+# curl  -O -sL $GHR/configs/.zshrc
+# curl  -O -sL $GHR/configs/.vimrc
+# curl  -O -sL $GHR/configs/.hushlogin
+
+printStep "Sudo ..."
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 ##############################################################
 printStep "Done !"
