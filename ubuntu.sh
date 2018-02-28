@@ -13,19 +13,12 @@ printStep() {
 
 
 ##############################################################
-printStep "Sudo ..."
-echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-
-##############################################################
-printStep "Updating ..."
-sudo apt-get -qq update
+printStep "Sudo ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
 
 ##############################################################
 printStep "Installing binaries ..."
-sudo apt-get install -qq -y curl git zsh vim glances
-
-##############################################################
-printStep "Running install ..."
+sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ##############################################################
