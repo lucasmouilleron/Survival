@@ -11,7 +11,6 @@ printStep() {
     echo "$RED$1$NC"
 }
 
-
 ##############################################################
 printStep "Sudo ...";sudo usermod -aG sudo $USER;echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
@@ -23,9 +22,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ##############################################################
 printStep "Configuring ..."
-curl  -O -sL $GHR/configs/.zshrc
-curl  -O -sL $GHR/configs/.vimrc
-curl  -O -sL $GHR/configs/.hushlogin
+cd $HOME;curl -O -sL $GHR/configs/.zshrc
+cd $HOME;curl -O -sL $GHR/configs/.vimrc
+cd $HOME;curl -O -sL $GHR/configs/.hushlogin
 
 ##############################################################
 printStep "Done !"
