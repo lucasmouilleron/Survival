@@ -1,4 +1,4 @@
-export ZSH=/home/eraam/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 plugins=(git sudo cp history themes zsh-syntax-highlighting)
 ZSH_THEME="gianu"
 source $ZSH/oh-my-zsh.sh
