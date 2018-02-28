@@ -13,7 +13,7 @@ printStep() {
 
 
 ##############################################################
-printStep "Sudo ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+printStep "Sudo ...";sudo usermod -aG sudo $USER;echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
 
 ##############################################################
