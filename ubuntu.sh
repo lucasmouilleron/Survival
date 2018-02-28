@@ -24,6 +24,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 printStep "Configuring ..."
 cd $HOME;curl -O -sL $GHR/configs/.zshrc
 cd $HOME;curl -O -sL $GHR/configs/.vimrc
+cd $HOME;curl -O -sL $GHR/configs/.selected_editor
 cd $HOME;curl -O -sL $GHR/configs/.hushlogin
 
 ##############################################################

@@ -2,6 +2,10 @@ export ZSH=$HOME/.oh-my-zsh
 plugins=(git sudo cp history themes zsh-syntax-highlighting)
 ZSH_THEME="gianu"
 source $ZSH/oh-my-zsh.sh
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 alias 'ps?'='ps ax | grep -i'
 alias ll='ls -alFh'
 alias la='ls -A'
