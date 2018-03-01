@@ -25,16 +25,10 @@ getGHConfigFile() {
 ##############################################################
 # MAIN
 ##############################################################
+sudo -n true
+if [ "$?" != "0" ]; then echo "You must be a sudoer to run this script. Log as a sudoer user and run 'sudo usermod -aG sudo $USER'"; exit 1; fi
 printStep "Sudo ..."
-read -p "What user has root rights and you know the password of (root*|username|skip) ? " answer
-if [ "$answer" = "skip" ]; then
-    printSmallStep "Skipping sudoing"
-else
-    if [ "$answer" = "" ]; then answer="root"; fi
-    printSmallStep "Logging as $answer and making $USER sudoer"
-    su - $answer -c "sudo usermod -aG sudo $USER"
-    echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-fi
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 ##############################################################
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
 ##############################################################
