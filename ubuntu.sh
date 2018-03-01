@@ -15,9 +15,13 @@ printSmallStep() { echo "$BLUE$1$NC"; }
 ##############################################################
 getGHConfigFile() {
     printSmallStep "Downloading file $GHR/configs/$1"
-    if [ -f $1 ]; then cp $1 $1.back.$(date +%s); fi
     curl -O -sL --fail $GHR/configs/$1
     if [ "$?" -ne "0" ]; then printError "Can't download file $GHR/configs/$1 $returnCode"; fi
+}
+##############################################################
+getGHConfigFileWB() {
+    if [ -f $1 ]; then cp $1 $1.back.$(date +%s); fi
+    getGHConfigFile $1
 }
 
 ##############################################################
@@ -38,6 +42,6 @@ cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOM
 ##############################################################
 printStep "Configuring locales ...";sudo locale-gen --purge en_US.UTF-8;echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | sudo tee /etc/default/locale
 ##############################################################
-printStep "Configuring ...";cd $HOME;getGHConfigFile .zshrc;getGHConfigFile .vimrc;getGHConfigFile .selected_editor;getGHConfigFile .hushlogin;getGHConfigFile .tmux.conf
+printStep "Configuring ...";cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFile .selected_editor;getGHConfigFile .hushlogin;getGHConfigFileWB .tmux.conf
 ##############################################################
 printStep "Last step, switching shell";chsh -s $(which zsh)
