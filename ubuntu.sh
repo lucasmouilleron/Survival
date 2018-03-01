@@ -3,6 +3,7 @@
 ##############################################################
 # CONFIG
 ##############################################################
+VERSION="1.0"
 GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 
 ##############################################################
@@ -10,17 +11,18 @@ GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 ##############################################################
 RED='\033[0;31m';GREEN='\033[0;33m';BLUE='\033[0;34m';NC='\033[0m'
 printStep() { echo "$GREEN$1$NC"; }
-printError() { echo "$RED$1$NC"; }
+printDanger() { echo "$RED$1$NC"; }
 printSmallStep() { echo "$BLUE$1$NC"; }
 ##############################################################
 getGHConfigFile() {
     printSmallStep "Downloading file $GHR/configs/$1"
     curl -O -sL --fail $GHR/configs/$1
-    if [ "$?" -ne "0" ]; then printError "Can't download file $GHR/configs/$1 $returnCode"; fi
+    if [ "$?" -ne "0" ]; then printDanger "Can't download file $GHR/configs/$1 $returnCode"; fi
 }
 ##############################################################
 getGHConfigFileWB() {
-    if [ -f $1 ]; then cp $1 $1.back.$(date +%s); fi
+    # if [ -f $1 ]; then cp $1 $1.back.$(date +%s); fi
+    if [ -f $1 ]; then cp $1 $1.back; fi
     getGHConfigFile $1
 }
 
@@ -31,7 +33,7 @@ sudo -n true;if [ "$?" != "0" ]; then echo "You must be a sudoer to run this scr
 ##############################################################
 # MAIN
 ##############################################################
-printStep "Survival Installer 1.0"
+printDanger "Survival Installer $VERSION"
 printStep "Sudo without prompt ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 ##############################################################
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
