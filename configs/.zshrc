@@ -17,7 +17,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias rm="rm -i"
 alias mc="micro"
-alias tm="tmux attach || tmux new"
 alias zshconfig="mc ~/.zshrc"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -28,6 +27,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+tm() {tmux attach -t $1 || tmux new -s $1}
 
 ###########################################################################
 # LANGUAGES - PYTHON
