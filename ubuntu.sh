@@ -34,9 +34,7 @@ printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id
 ##############################################################
 printStep "Installing binaries ..."
 sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates # main binaries
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" # oh my zsh
-echo "ok"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch # oh my zsh
 cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOME # micro
 ##############################################################
 printStep "Configuring locales ..."
@@ -48,6 +46,6 @@ cd $HOME;getGHConfigFile .vimrc
 cd $HOME;getGHConfigFile .selected_editor
 cd $HOME;getGHConfigFile .hushlogin
 cd $HOME;getGHConfigFile .tmux.conf
-
 ##############################################################
-printStep "Done !"
+printStep "Last step, switching shell"
+chsh -s $(which zsh)
