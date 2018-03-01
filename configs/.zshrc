@@ -30,17 +30,6 @@ fi
 tm() {tmux attach -t $1 || tmux new -s $1}
 
 ###########################################################################
-# LANGUAGES - PYTHON
-###########################################################################
-alias py="python"
-alias ipy="ipython --profile default"
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT/shims" ]; then
-    export PATH=$PYENV_ROOT/shims:$PATH
-    eval "$(pyenv init -)"
-fi
-
-###########################################################################
 # MISCS
 ###########################################################################
 export VISUAL=vim
