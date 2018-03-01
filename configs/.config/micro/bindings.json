@@ -1,0 +1,4 @@
+{
+    "CtrlK": "command:set mouse on",
+    "CtrlJ": "command:set mouse off",
+}

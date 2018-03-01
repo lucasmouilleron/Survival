@@ -21,7 +21,6 @@ getGHConfigFile() {
 }
 ##############################################################
 getGHConfigFileWB() {
-    # if [ -f $1 ]; then cp $1 $1.back.$(date +%s); fi
     if [ -f $1 ]; then cp $1 $1.back; fi
     getGHConfigFile $1
 }
@@ -45,6 +44,6 @@ cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOM
 ##############################################################
 printStep "Configuring locales ...";sudo locale-gen --purge en_US.UTF-8;echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | sudo tee /etc/default/locale
 ##############################################################
-printStep "Configuring ...";cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFile .selected_editor;getGHConfigFile .hushlogin;getGHConfigFileWB .tmux.conf
+printStep "Configuring ...";cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFile .selected_editor;getGHConfigFile .hushlogin;getGHConfigFileWB .tmux.conf;getGHConfigFileWB .config/micro/settings.json;getGHConfigFileWB .config/micro/bindings.json
 ##############################################################
 printStep "Last step, switching shell";chsh -s $(which zsh)
