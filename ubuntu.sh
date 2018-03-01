@@ -31,6 +31,7 @@ sudo -n true;if [ "$?" != "0" ]; then echo "You must be a sudoer to run this scr
 ##############################################################
 # MAIN
 ##############################################################
+printStep "Survival Installer 1.0"
 printStep "Sudo without prompt ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 ##############################################################
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
