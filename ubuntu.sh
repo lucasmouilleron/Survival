@@ -7,15 +7,9 @@ GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 ##############################################################
 # HELPERS
 ##############################################################
-RED='\033[0;31m'
-GREEN='\033[0;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
-##############################################################
+RED='\033[0;31m';GREEN='\033[0;33m';BLUE='\033[0;34m';NC='\033[0m'
 printStep() {echo "$GREEN$1$NC";}
-##############################################################
 printError() {echo "$RED$1$NC";}
-##############################################################
 printSmallStep() {echo "$BLUE$1$NC";}
 ##############################################################
 getGHConfigFile() {
@@ -45,9 +39,9 @@ fi
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
 ##############################################################
 printStep "Installing binaries ..."
-sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOME
+sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates # main binaries
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" # oh my zsh
+cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOME # micro
 ##############################################################
 printStep "Configuring locales ..."
 sudo locale-gen --purge en_US.UTF-8;echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | sudo tee /etc/default/locale
@@ -58,5 +52,6 @@ cd $HOME;getGHConfigFile .vimrc
 cd $HOME;getGHConfigFile .selected_editor
 cd $HOME;getGHConfigFile .hushlogin
 cd $HOME;getGHConfigFile .tmux.conf
+
 ##############################################################
 printStep "Done !"
