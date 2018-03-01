@@ -16,8 +16,8 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm="rm -i"
-alias mc="micro"
-alias zshconfig="mc ~/.zshrc"
+alias m="micro"
+alias zshconfig="m ~/.zshrc"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -32,7 +32,7 @@ tm() {tmux attach -t $1 || tmux new -s $1}
 ###########################################################################
 # MISCS
 ###########################################################################
-export VISUAL=vim
+export VISUAL=micro
 export EDITOR="$VISUAL"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
