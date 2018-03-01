@@ -1,17 +1,24 @@
+#!/bin/zsh
+
+###########################################################################
+# ZSH
+###########################################################################
 export ZSH=$HOME/.oh-my-zsh
 plugins=(git sudo cp history themes zsh-syntax-highlighting)
 ZSH_THEME="gianu"
 source $ZSH/oh-my-zsh.sh
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
+###########################################################################
+# ALIASES
+###########################################################################
 alias 'ps?'='ps ax | grep -i'
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias rm="rm -i"
-alias sl="slap"
+alias mc="micro"
+alias tm="tmux attach || tmux new"
+alias zshconfig="mc ~/.zshrc"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -21,3 +28,24 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+###########################################################################
+# LANGUAGES - PYTHON
+###########################################################################
+alias py="python"
+alias ipy="ipython --profile default"
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "$PYENV_ROOT/shims" ]; then
+    export PATH=$PYENV_ROOT/shims:$PATH
+    eval "$(pyenv init -)"
+fi
+
+###########################################################################
+# MISCS
+###########################################################################
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANGUAGE=en_US:en
