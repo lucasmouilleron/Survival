@@ -8,9 +8,9 @@ GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 # HELPERS
 ##############################################################
 RED='\033[0;31m';GREEN='\033[0;33m';BLUE='\033[0;34m';NC='\033[0m'
-printStep() {echo "$GREEN$1$NC";}
-printError() {echo "$RED$1$NC";}
-printSmallStep() {echo "$BLUE$1$NC";}
+printStep() { echo "$GREEN$1$NC"; }
+printError() { echo "$RED$1$NC"; }
+printSmallStep() { echo "$BLUE$1$NC"; }
 ##############################################################
 getGHConfigFile() {
     printSmallStep "Downloading file $GHR/configs/$1"
