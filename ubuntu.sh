@@ -6,8 +6,6 @@
 VERSION="1.0"
 GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 
-https://github.com/lucasmouilleron/Survival/raw/master/configs/.config/micro/bindings.json
-
 ##############################################################
 # HELPERS
 ##############################################################
