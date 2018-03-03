@@ -3,7 +3,7 @@
 ##############################################################
 # CONFIG
 ##############################################################
-VERSION="1.1"
+VERSION="1.2"
 GHR="https://raw.githubusercontent.com/lucasmouilleron/Survival/master"
 
 ##############################################################
@@ -39,7 +39,7 @@ printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id
 ##############################################################
 printStep "Installing binaries ..."
 sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates
-if [ -f $HOME/.oh-my-zsh ]; then mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.back; fi;git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+if [ -d $HOME/.oh-my-zsh ]; then mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.back; fi;git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOME # micro
 ##############################################################
 printStep "Configuring locales ...";sudo locale-gen --purge en_US.UTF-8;echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | sudo tee /etc/default/locale
