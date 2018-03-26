@@ -9,6 +9,15 @@ ZSH_THEME="gianu"
 source $ZSH/oh-my-zsh.sh
 
 ###########################################################################
+# PATH
+###########################################################################
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/bin:$PATH
+export PATH=/usr/sbin:$PATH
+
+###########################################################################
 # ALIASES
 ###########################################################################
 alias 'ps?'='ps ax | grep -i'
