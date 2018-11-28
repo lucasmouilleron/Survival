@@ -7,7 +7,8 @@ Nice minimal setup for hostile environments :)
 
 Install - Ubuntu
 -----------------
-`cd $HOME;sh <(wget -o /dev/null -qO- https://raw.githubusercontent.com/lucasmouilleron/Survival/master/ubuntu.sh)`
+- `usermod -aG sudo username`
+- `cd $HOME;sh <(wget -o /dev/null -qO- https://raw.githubusercontent.com/lucasmouilleron/Survival/master/ubuntu.sh)`
 
 Install - Others
 ----------------
