@@ -42,7 +42,7 @@ tm() {tmux attach -t $1 || tmux new -s $1}
 ###########################################################################
 # GIT
 ###########################################################################
-alias git=hub
+alias git=git
 alias gitm="git merge --no-ff"
 alias gita="git add --all :/"
 alias gitc="git commit -m"
