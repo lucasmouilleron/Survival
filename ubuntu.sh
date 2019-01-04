@@ -16,7 +16,7 @@ printSmallStep() { echo "$BLUE$1$NC"; }
 ##############################################################
 getGHConfigFile() {
     printSmallStep "Downloading file $GHR/configs/$1"
-    curl -O -sL --fail $GHR/configs/$1
+    curl --create-dirs -o $1 -sL --fail $GHR/configs/$1
     if [ "$?" -ne "0" ]; then printDanger "Can't download file $GHR/configs/$1 $returnCode"; fi
 }
 ##############################################################
