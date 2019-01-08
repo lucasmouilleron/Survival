@@ -5,9 +5,15 @@
 ###########################################################################
 export ZSH=$HOME/.oh-my-zsh
 export SHELL=/usr/bin/zsh
-plugins=(git sudo cp history themes zsh-syntax-highlighting)
+plugins=(git sudo cp history themes zsh-syntax-highlighting ssh-agent)
 ZSH_THEME="gianu"
 source $ZSH/oh-my-zsh.sh
+
+###########################################################################
+# SSH AGENT
+###########################################################################
+zstyle :omz:plugins:ssh-agent identities id_rsa > /dev/null
+zstyle :omz:plugins:ssh-agent lifetime 24h > /dev/null
 
 ###########################################################################
 # PATH

@@ -35,7 +35,7 @@ sudo -n true;if [ "$?" != "0" ]; then echo "You must be a sudoer to run this scr
 printDanger "Survival Installer $VERSION"
 printStep "Sudo without prompt ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 ##############################################################
-printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N ""
+printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N "$SSH_PASSPHRASE"
 ##############################################################
 printStep "Installing binaries ..."
 sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates ssh net-tools
