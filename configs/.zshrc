@@ -3,6 +3,7 @@
 ###########################################################################
 # ZSH
 ###########################################################################
+export DISABLE_UPDATE_PROMPT=true
 export ZSH=$HOME/.oh-my-zsh
 export SHELL=/usr/bin/zsh
 plugins=(git sudo cp history themes zsh-syntax-highlighting ssh-agent)
