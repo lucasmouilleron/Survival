@@ -5,8 +5,8 @@ Survival
 
 Nice minimal setup for hostile environments :)
 
-Install - Ubuntu
------------------
+Install - Debian / Ubuntu
+-------------------------
 - From root or sudo user:`usermod -aG sudo username`
 - From user `username`: `sudo ls`
 - From user `username`: export SSH_PASSPHRASE="12345" if SSH passphrase desired (more than 5 characters)
