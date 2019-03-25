@@ -52,4 +52,4 @@ printStep "Configuring locales ...";sudo locale-gen --purge en_US.UTF-8;echo -e 
 printStep "Configuring ...";
 cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFile .selected_editor;getGHConfigFile .hushlogin;getGHConfigFileWB .tmux.conf;getGHConfigFileWB .config/micro/settings.json;getGHConfigFileWB .config/micro/bindings.json
 ##############################################################
-printStep "Last step, switching shell. After it's done, delog and relog.";chsh -s $(which zsh)
+printStep "Last step, switching shell ...";chsh -s $(grep /zsh$ /etc/shells | tail -1);env zsh -l
