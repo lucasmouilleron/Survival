@@ -46,6 +46,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 tm() {tmux attach -t $1 || tmux new -s $1}
+alias df="df -h"
+dfd() {
+    if [ ! -z "$1" ] ; then folder=$1 ; else folder="./" ; fi
+    read -q "REPLY?Are you want to df deep for $folder ? <y/N> "
+    if [[ $REPLY != "y" && $REPLY != "Y" ]] ; then return 1 ; fi
+    echo "\n"
+    sudo du -hs $folder/* | sort -hr
+}
 
 ###########################################################################
 # GIT
