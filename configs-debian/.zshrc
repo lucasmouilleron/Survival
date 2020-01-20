@@ -3,6 +3,7 @@
 ###########################################################################
 # ZSH
 ###########################################################################
+export DISABLE_AUTO_UPDATE=true
 export DISABLE_UPDATE_PROMPT=true
 export ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
