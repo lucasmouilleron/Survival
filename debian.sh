@@ -42,8 +42,8 @@ printStep "Sudo without prompt ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo t
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N "$SSH_PASSPHRASE"
 ##############################################################
 printStep "Installing binaries ..."
-sudo apt-get -qq update;sudo apt-get install -qq -y curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu visidata
-cd /tmp;sudo apt-get  -qq -y install apt-transport-https;wget "https://raw.githubusercontent.com/saulpw/deb-vd/master/devotees.gpg.key" ; sudo apt-key add devotees.gpg.key;sudo add-apt-repository "deb [arch=amd64] https://raw.githubusercontent.com/saulpw/deb-vd/master sid main";sudo apt-get -qq update;sudo apt-get -qq -y install visidata
+sudo apt-get -qq update;sudo apt-get install -qq -y dpkg curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu visidata
+cd /tmp;sudo apt-get -qq -y install python3-dateutil;wget --no-check-certificate --content-disposition "https://github.com/saulpw/deb-vd/raw/master/pool/main/v/visidata/visidata_1.5.2-1_all.deb" ; sudo dpkg -i /tmp/visidata_1.5.2-1_all.deb
 if [ -d $HOME/.oh-my-zsh ]; then rm -rf $HOME/.oh-my-zsh; fi;git clone --quiet --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 cd $HOME/.oh-my-zsh/plugins;git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cd /usr/local/bin;curl -sS https://getmic.ro | sudo bash >/dev/null 2>&1;cd $HOME # micro
