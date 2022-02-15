@@ -1,6 +1,8 @@
 Survival
 ========
 
+![Screenshot](http://grabs.lucasmouilleron.com/grab%202021-03-13%20at%2009.40.07.png)
+
 Nice minimal setup for hostile environments :)
 
 Install - Debian / Ubuntu
