@@ -42,7 +42,7 @@ printStep "Sudo without prompt ...";echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo t
 printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id_rsa -q -N "$SSH_PASSPHRASE"
 ##############################################################
 printStep "Installing binaries ..."
-sudo apt-get -qq update;sudo apt-get install -qq -y dpkg locales curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu # utils
+sudo apt-get -qq update;sudo apt-get install -qq -y dpkg dnsutils locales curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu # utils
 cd /tmp;sudo apt-get -qq -y install python3-dateutil;wget --no-check-certificate --content-disposition "https://github.com/saulpw/deb-vd/raw/master/pool/main/v/visidata/visidata_1.5.2-1_all.deb" ; sudo dpkg -i /tmp/visidata_1.5.2-1_all.deb # visidata
 if [ -d $HOME/.oh-my-zsh ]; then rm -rf $HOME/.oh-my-zsh; fi;git clone --quiet --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh # zsh
 cd $HOME/.oh-my-zsh/plugins;git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting # zsh plugins
