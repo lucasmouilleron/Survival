@@ -38,12 +38,12 @@ alias m="micro"
 alias zshconfig="m ~/.zshrc"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias ls='ls --color'
+    #alias dir='dir --color'
+    #alias vdir='vdir --color'
+    alias grep='grep --color'
+    alias fgrep='fgrep --color'
+    alias egrep='egrep --color'
 fi
 tm() {tmux attach -t $1 || tmux new -s $1}
 alias df="df -h"
