@@ -43,7 +43,7 @@ printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id
 ##############################################################
 printStep "Installing binaries ..."
  # utils
-sudo apt-get -qq update;sudo apt-get install -qq -y dpkg dnsutils locales curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu
+sudo apt-get -qq update;sudo apt-get install -qq -y dpkg make dnsutils locales curl git zsh vim glances xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu
 # btop
 sudo apt-get -qq -y install btop
 # if not working: mkdir btop;cd btop;wget https://github.com/aristocratos/btop/releases/download/v1.2.12/btop-x86_64-linux-musl.tbz;tar -xjf btop-x86_64-linux-musl.tbz;sudo make install;cd $HOME;rm -rf btop
