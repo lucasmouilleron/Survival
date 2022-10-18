@@ -58,7 +58,7 @@ if [ -d $HOME/.oh-my-zsh ]; then rm -rf $HOME/.oh-my-zsh; fi;git clone --quiet -
 cd $HOME/.oh-my-zsh/plugins;git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ##############################################################
 printStep "Configuring ...";
-cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFileWB .tmux.conf;getGHConfigFileWB .config/micro/settings.json;getGHConfigFileWB .config/micro/bindings.json;getGHConfigFileWB .hammerspoon/init.lua;getGHConfigFileWB .config/btop/btop.conf
+cd $HOME;getGHConfigFileWB .zshrc;getGHConfigFileWB .vimrc;getGHConfigFileWB .visidatarc;getGHConfigFileWB .tmux.conf;getGHConfigFileWB .config/micro/settings.json;getGHConfigFileWB .config/micro/bindings.json;getGHConfigFileWB .hammerspoon/init.lua;getGHConfigFileWB .config/btop/btop.conf
 printStep "From Hammerspoon Preferences, check 'Open at login', uncheck 'Show dock icon'";open -a Hammerspoon
 printStep "From Contexts Preferences, check 'Welcome > Lauch Contexts at login', uncheck 'Sidebar > No display, create an item in 'Command tab' for key 'cmd+@' and for active apps";open -a Contexts
 ##############################################################
