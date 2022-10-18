@@ -1,0 +1,9 @@
+options.scroll_incr = -3
+options.csv_delimiter=";"
+options.save_filetype="csv"
+options.disp_status_fmt = options.disp_status_fmt + '({sheet.cursorRowIndex},{sheet.cursorColIndex}) '
+options.clean_names = True
+options.disp_menu = False
+options.color_default = "white"
+options.color_status = "black on white"
+options.color_active_status = "black on white"
