@@ -43,12 +43,12 @@ printStep "SSH key ...";mkdir -p .ssh;ssh-keygen -b 2048 -t rsa -f $HOME/.ssh/id
 ##############################################################
 printStep "Installing binaries ..."
  # utils
-sudo apt-get -qq update;sudo apt-get install -qq -y dpkg make dnsutils locales curl git zsh vim xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu
+sudo apt-get -qq update;sudo apt-get install -qq -y software-properties-common dpkg make dnsutils locales curl git zsh vim xclip openssl tmux ca-certificates ssh rsync net-tools zip ncdu psmisc
 # btop
 sudo apt-get -qq -y install btop
 # if not working: mkdir btop;cd btop;wget https://github.com/aristocratos/btop/releases/download/v1.2.12/btop-x86_64-linux-musl.tbz;tar -xjf btop-x86_64-linux-musl.tbz;sudo make install;cd $HOME;rm -rf btop
 # visidata
-cd /tmp;sudo apt-get -qq -y install python3-dateutil;wget --no-check-certificate --content-disposition "https://github.com/saulpw/deb-vd/raw/master/pool/main/v/visidata/visidata_1.5.2-1_all.deb" ; sudo dpkg -i /tmp/visidata_1.5.2-1_all.deb
+cd /tmp;sudo apt-get -qq -y install python3-dateutil;wget --no-check-certificate --content-disposition "https://github.com/visidata/deb-vd/raw/master/pool/main/v/visidata/visidata_2.8-1_all.deb" ; sudo dpkg -i /tmp/visidata_2.8-1_all.deb
  # zsh
 if [ -d $HOME/.oh-my-zsh ]; then rm -rf $HOME/.oh-my-zsh; fi;git clone --quiet --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
  # zsh plugins
