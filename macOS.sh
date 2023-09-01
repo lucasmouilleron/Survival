@@ -52,6 +52,8 @@ brew cask install contexts
 brew cask install hammerspoon
  # visidata
 brew install saulpw/vd/visidata
+# ranger
+pip install ranger-fm
  # zsh
 if [ -d $HOME/.oh-my-zsh ]; then rm -rf $HOME/.oh-my-zsh; fi;git clone --quiet --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
  # zsh plugins
