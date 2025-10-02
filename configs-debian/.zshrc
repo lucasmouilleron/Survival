@@ -56,26 +56,19 @@ dfd() {
     sudo du -hs $folder/* | sort -hr
 }
 rms() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: rms [-f] <pattern>"
-    return 1
-  fi
-  if [[ "$1" == "-f" ]]; then
-    shift
-    find . -maxdepth 1 -type f -iname "*$1*" -exec rm -f {} \;
-  else
-    find . -maxdepth 1 -type f -iname "*$1*" -exec rm -i {} \;
-  fi
+    local force=0
+    [[ "$1" == "-f" ]] && { force=1; shift; }
+    [[ -z "$1" ]] && { echo "Usage: rms [-f] <pattern>"; return 1; }
+    find . -maxdepth 1 -type f -iname "*$1*" -exec rm $([[ $force -eq 1 ]] && echo "-f" || echo "-i") {} \;
 }
+
 lls() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: lls <pattern>"
-    return 1
-  fi
-  ls -la | grep -i --color=always "$1"
+    [[ -z "$1" ]] && { echo "Usage: lls <pattern>"; return 1; }
+    ls -la | grep -i --color=always "$1"
 }
-alias "ll?"=lls
-alias "rm?"=rms
+
+alias ll?=lls
+alias rm?=rms
 
 ###########################################################################
 # GIT
