@@ -61,14 +61,12 @@ rms() {
     [[ -z "$1" ]] && { echo "Usage: rms [-f] <pattern>"; return 1; }
     find . -maxdepth 1 -type f -iname "*$1*" -exec rm $([[ $force -eq 1 ]] && echo "-f" || echo "-i") {} \;
 }
-
 lls() {
     [[ -z "$1" ]] && { echo "Usage: lls <pattern>"; return 1; }
     ls -la | grep -i --color=always "$1"
 }
-
-alias ll?=lls
-alias rm?=rms
+alias "ll?"=lls
+alias "rm?"=rms
 
 ###########################################################################
 # GIT
