@@ -58,7 +58,7 @@ rms() {
     local force=0
     [[ "$1" == "-f" ]] && { force=1; shift; }
     [[ -z "$1" ]] && { echo "Usage: rms [-f] <pattern>"; return 1; }
-    find . -maxdepth 1 -type f -iname "*$1*" -exec rm $([[ $force -eq 1 ]] && echo "-f" || echo "-i") {} \;
+    find . -maxdepth 1 -type f -iregex ".*$1.*" -exec rm $([[ $force -eq 1 ]] && echo "-f" || echo "-i") {} \;
 }
 lls() {
     [[ -z "$1" ]] && { echo "Usage: lls <pattern>"; return 1; }
